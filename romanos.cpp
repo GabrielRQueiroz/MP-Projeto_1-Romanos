@@ -3,6 +3,35 @@
 
 #include "./romanos.hpp"
 
-int romanos_para_decimal(char const *num_romano) {
-  return 0;
+int roman_value(char num_romano) {
+  switch (num_romano) {
+    case 'I':
+      return 1;
+    case 'V':
+      return 5;
+    case 'X':
+      return 10;
+    case 'L':
+      return 50;
+    case 'C':
+      return 100;
+    case 'D':
+      return 500;
+    case 'M':
+      return 1000;
+  }
+
+  return -1;
+}
+
+int romanos_para_decimal(const char* num_romano) {
+  int input_size = 0;
+
+  while (num_romano[input_size] != '\0') {
+    input_size++;
+  }
+
+  for (int i = 0; i < input_size; i++) {
+    return roman_value(num_romano[i]);
+  }
 }
