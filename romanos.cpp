@@ -25,6 +25,7 @@ int roman_value(char num_romano) {
 }
 
 int romanos_para_decimal(const char* num_romano) {
+  int decimal = 0;
   int input_size = 0;
 
   while (num_romano[input_size] != '\0') {
@@ -32,6 +33,11 @@ int romanos_para_decimal(const char* num_romano) {
   }
 
   for (int i = 0; i < input_size; i++) {
-    return roman_value(num_romano[i]);
+    int current_value = roman_value(num_romano[i]);
+
+    
+    decimal += current_value;
   }
+
+  return decimal;
 }
