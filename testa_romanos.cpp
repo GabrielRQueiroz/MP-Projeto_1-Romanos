@@ -147,3 +147,12 @@ TEST_CASE("Numeros romanos - combinações complexas", "[romanos]") {
     REQUIRE(romanos_para_decimal("MMDCCC") ==  2800);
     REQUIRE(romanos_para_decimal("MMCM") ==  2900);
 }
+
+TEST_CASE("Numeros romanos - combinações inválida: limite de caracteres consecutivos", "[romanos]") {
+    REQUIRE(romanos_para_decimal("IIII") == -1);
+    REQUIRE(romanos_para_decimal("VV") == -1);
+    REQUIRE(romanos_para_decimal("XXXX") == -1);
+    REQUIRE(romanos_para_decimal("LL") == -1);
+    REQUIRE(romanos_para_decimal("CCCC") == -1);
+    REQUIRE(romanos_para_decimal("DD") == -1);
+}
