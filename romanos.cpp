@@ -64,6 +64,10 @@ int romanos_para_decimal(const char* num_romano) {
   for (int i = 0; i < input_size; i++) {
     int current_value = roman_value(num_romano[i]);
 
+    if (consecutive > 1 && current_value > roman_value(num_romano[i - 1])) {
+      return -1;
+    }
+
     if (i > 0 && num_romano[i] == num_romano[i - 1]) {
       consecutive++;
     } else {
