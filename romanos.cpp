@@ -79,6 +79,10 @@ int romanos_para_decimal(const char* num_romano) {
     }
 
     if (i > 0 && current_value > roman_value(num_romano[i - 1])) {
+      if (!valid_successor(num_romano[i - 1], num_romano[i])) {
+        return -1;
+      }
+
       decimal +=
         current_value - roman_value(num_romano[i - 1]);
     } else if (current_value < roman_value(num_romano[i + 1])) {
