@@ -64,6 +64,7 @@ int romanos_para_decimal(const char* num_romano) {
   for (int i = 0; i < input_size; i++) {
     int current_value = roman_value(num_romano[i]);
 
+    // Nunca há 2 caracteres iguais consecutivos com valor menor que o sucessor
     if (consecutive > 1 && current_value > roman_value(num_romano[i - 1])) {
       return -1;
     }
@@ -83,8 +84,12 @@ int romanos_para_decimal(const char* num_romano) {
         return -1;
       }
 
-      decimal +=
-        current_value - roman_value(num_romano[i - 1]);
+      // Impede dois caracteres iguais sucessivamente após um caractere de valor menor
+      if (num_romano[i] == num_romano[i + 1]) {
+        return -1;
+      }
+
+      decimal += current_value - roman_value(num_romano[i - 1]);
     } else if (current_value < roman_value(num_romano[i + 1])) {
       // Se o caractere atual for menor que o próximo, ele será subtraído
       // na subtraído próxima iteração
