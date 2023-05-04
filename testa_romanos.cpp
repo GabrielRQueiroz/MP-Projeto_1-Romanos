@@ -183,3 +183,12 @@ TEST_CASE("Numeros romanos - combinações inválida: ordem inapropriada", "[rom
     REQUIRE(romanos_para_decimal("LM") == -1);
     REQUIRE(romanos_para_decimal("DM") == -1);
 }
+
+TEST_CASE("Numeros romanos - combinações inválida: dois maiores após menor", "[romanos]") {
+    REQUIRE(romanos_para_decimal("IXX") == -1);
+    REQUIRE(romanos_para_decimal("IVV") == -1);
+    REQUIRE(romanos_para_decimal("XLL") == -1);
+    REQUIRE(romanos_para_decimal("XCC") == -1);
+    REQUIRE(romanos_para_decimal("CDD") == -1);
+    REQUIRE(romanos_para_decimal("CMM") == -1);
+}
