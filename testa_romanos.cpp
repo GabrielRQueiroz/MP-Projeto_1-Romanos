@@ -165,3 +165,21 @@ TEST_CASE("Numeros romanos - combinações inválida: dois menores antes de um m
     REQUIRE(romanos_para_decimal("CCD") == -1);
     REQUIRE(romanos_para_decimal("CCM") == -1);
 }
+
+TEST_CASE("Numeros romanos - combinações inválida: ordem inapropriada", "[romanos]") {
+    REQUIRE(romanos_para_decimal("IL") == -1);
+    REQUIRE(romanos_para_decimal("IC") == -1);
+    REQUIRE(romanos_para_decimal("ID") == -1);
+    REQUIRE(romanos_para_decimal("IM") == -1);
+    REQUIRE(romanos_para_decimal("VX") == -1);
+    REQUIRE(romanos_para_decimal("VL") == -1);
+    REQUIRE(romanos_para_decimal("VC") == -1);
+    REQUIRE(romanos_para_decimal("VD") == -1);
+    REQUIRE(romanos_para_decimal("VM") == -1);
+    REQUIRE(romanos_para_decimal("XD") == -1);
+    REQUIRE(romanos_para_decimal("XM") == -1);
+    REQUIRE(romanos_para_decimal("LC") == -1);
+    REQUIRE(romanos_para_decimal("LD") == -1);
+    REQUIRE(romanos_para_decimal("LM") == -1);
+    REQUIRE(romanos_para_decimal("DM") == -1);
+}
