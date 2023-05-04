@@ -156,3 +156,12 @@ TEST_CASE("Numeros romanos - combinações inválida: limite de caracteres conse
     REQUIRE(romanos_para_decimal("CCCC") == -1);
     REQUIRE(romanos_para_decimal("DD") == -1);
 }
+
+TEST_CASE("Numeros romanos - combinações inválida: dois menores antes de um maior", "[romanos]") {
+    REQUIRE(romanos_para_decimal("IIV") == -1);
+    REQUIRE(romanos_para_decimal("IIX") == -1);
+    REQUIRE(romanos_para_decimal("XXL") == -1);
+    REQUIRE(romanos_para_decimal("XXC") == -1);
+    REQUIRE(romanos_para_decimal("CCD") == -1);
+    REQUIRE(romanos_para_decimal("CCM") == -1);
+}
