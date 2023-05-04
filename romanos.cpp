@@ -70,6 +70,10 @@ int romanos_para_decimal(const char* num_romano) {
       consecutive = 1;
     }
 
+    if (exceeded_consecutive(num_romano[i], consecutive)) {
+      return -1;
+    }
+
     if (i > 0 && current_value > roman_value(num_romano[i - 1])) {
       decimal +=
         current_value - roman_value(num_romano[i - 1]);
